@@ -16,18 +16,30 @@
     <ClInclude Include="Cell.hpp">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="Population.hpp">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="Coordinate.hpp">
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="CellInterface.hpp">
       <Filter>Resource Files</Filter>
     </ClInclude>
+    <ClInclude Include="PopulationInterface.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Species.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PopulationBack.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Template.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Population.hpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>

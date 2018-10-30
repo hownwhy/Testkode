@@ -45,7 +45,7 @@ int main()
     for (int j = 0; j < 10; j++)
     {
       grid[i][j].first.set(i, j);
-      grid[i][j].second = std::make_shared<Cell<Population>>();
+     // grid[i][j].second = std::make_shared<Cell<Population>>();
 //       grid[i][j].second = std::make_shared<Cell<OilPopulation>>();
 //       grid[i][j].second = std::make_shared<Cell<WaterPopulation>>();
     }

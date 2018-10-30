@@ -39,11 +39,11 @@ public:    // Functions
 
   void calculate(bool populationIndex) override
   {
-    POPULATION &currentPopulation = populations[populationIndex];
-    POPULATION &calculationPopulation = populations[!populationIndex];
-    // Go through neighbours and fill populationCalculation;
+    POPULATION &currentPopulations = populations[populationIndex];
+    POPULATION &resultPopulations = populations[!populationIndex];
+    // Go through neighbours and fill resultPopulations;
 
-    currentPopulation.getSpeciesHeaddingWest();
+    currentPopulations.getSpeciesHeaddingWest();
   }
 
 #if 0

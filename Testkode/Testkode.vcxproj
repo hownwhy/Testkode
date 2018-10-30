@@ -118,11 +118,15 @@
     <ClInclude Include="Cell.hpp" />
     <ClInclude Include="CellInterface.hpp" />
     <ClInclude Include="Coordinate.hpp" />
+    <ClInclude Include="Globals.hpp" />
     <ClInclude Include="Neighbours.hpp" />
-    <ClInclude Include="Population.hpp" />
+    <ClInclude Include="PopulationBack.hpp" />
+    <ClInclude Include="PopulationInterface.hpp" />
+    <ClInclude Include="Species.hpp" />
     <ClInclude Include="Template.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Population.hpp" />
     <ClCompile Include="Template.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
