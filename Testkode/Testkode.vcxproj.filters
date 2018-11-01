@@ -7,9 +7,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Template.hpp">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="Neighbours.hpp">
       <Filter>Resource Files</Filter>
     </ClInclude>
@@ -25,21 +22,27 @@
     <ClInclude Include="PopulationInterface.hpp">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="Species.hpp">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="Globals.hpp">
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="PopulationBack.hpp">
       <Filter>Resource Files</Filter>
     </ClInclude>
+    <ClInclude Include="Main.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicsInterface.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpeciesInterface.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Template.cpp">
+    <ClCompile Include="Population.hpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="Population.hpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>

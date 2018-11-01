@@ -1,8 +1,9 @@
-#include "Template.hpp"
+#include "Main.hpp"
 #include "Coordinate.hpp"
 #include "Cell.hpp"
 #include <iostream>
 
+#if 0
 void initializeNeighbours(std::array<std::array<std::pair<Coordinate, std::shared_ptr<CellInterface>>, 10>, 10> &grid)
 {
   for (int i = 0; i < 10; i++)
@@ -34,10 +35,40 @@ void initializeNeighbours(std::array<std::array<std::pair<Coordinate, std::share
     }
   }
 }
+#endif
+
+//class TestClassInterface
+//{
+//public:
+//	virtual void doStuff();
+//};
+
+class TestClass
+{
+public:
+	//TestClass();
+	static void doStuff() {
+		std::cout << "doStuff" << std::endl;
+	}
+};
+
+
+
+template <class TESTCLASS>
+class TestTemplate
+{
+public:
+	void doStuffTemplate() {
+		TESTCLASS::doStuff();
+
+	}
+};
+
 
 int main()
 {
-  std::array<std::array<std::pair<Coordinate, std::shared_ptr<CellInterface>>, 10>, 10> grid;
+#if 0
+	std::array<std::array<std::pair<Coordinate, std::shared_ptr<CellInterface>>, 10>, 10> grid;
 
 
   for (int i = 0; i < 10; i++)
@@ -70,7 +101,22 @@ int main()
       grid[i][j].second->calculate(1);
     }
   }
+
+#endif
+
+  TestTemplate<TestClass> test;
+  test.doStuffTemplate();
+
+  //TestClass::doStuff();
+  //TestClass testclass;
+
+ // testclass.doStuff();
+
+  std::cin.get();
+
   int k = 5;
+
+
 #if 0
   Cell cell{ std::make_unique<WaterPopulation>() };
   Cell oilCell{ std::make_unique<OilPopulation>() };

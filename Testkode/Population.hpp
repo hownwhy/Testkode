@@ -100,7 +100,7 @@ public:
 		return south;
 	}
 
-	field_t getSouthEast(field_t southEast_) {
+	field_t getSouthEast() {
 		return southEast;
 	}
 

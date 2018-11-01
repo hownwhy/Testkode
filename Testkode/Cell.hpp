@@ -2,13 +2,16 @@
 #include "CellInterface.hpp"
 #include <memory>
 #include <assert.h>
+#include "SpeciesInterface.hpp"
+#include "DynamicsInterface.hpp"
 
 
-template <class POPULATION>
+//template <class POPULATION>
 class Cell : public CellInterface
 {
+private:
   Neighbours neigbours;
-  std::array<POPULATION, 2> populations;
+  std::array<SpeciesInterface<DynamicsInterface>, 2> populations; //Specify a Dynamics class for each population
   //  FluidProperties;
 
 public:    // Functions
@@ -39,11 +42,11 @@ public:    // Functions
 
   void calculate(bool populationIndex) override
   {
-    POPULATION &currentPopulations = populations[populationIndex];
-    POPULATION &resultPopulations = populations[!populationIndex];
+   // POPULATION &currentPopulations = populations[populationIndex];
+    //POPULATION &resultPopulations = populations[!populationIndex];
     // Go through neighbours and fill resultPopulations;
 
-    currentPopulations.getSpeciesHeaddingWest();
+  //  currentPopulations.getSpeciesHeaddingWest();
   }
 
 #if 0
