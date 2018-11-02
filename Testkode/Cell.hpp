@@ -1,17 +1,19 @@
 #pragma once
-#include "CellInterface.hpp"
+#include "Cell.hpp"
+#include "Neighbours.hpp"
 #include <memory>
 #include <assert.h>
-#include "SpeciesInterface.hpp"
-#include "DynamicsInterface.hpp"
+#include "Species.hpp"
+#include "Dynamics.hpp"
+#include "Boundary.hpp"
 
 
 //template <class POPULATION>
-class Cell : public CellInterface
+class Cell
 {
 private:
   Neighbours neigbours;
-  std::array<SpeciesInterface<DynamicsInterface>, 2> populations; //Specify a Dynamics class for each population
+  std::array<Species<Dynamics, Boundary>, 2> species; //Specify a Dynamics class for each species
   //  FluidProperties;
 
 public:    // Functions
@@ -33,20 +35,25 @@ public:    // Functions
 #endif
   }
 
-  Neighbours &getNeighbours() override
+  Neighbours &getNeighbours()
   {
     return neigbours;
   }
 
   //----------------------------------------------------------------------------
 
-  void calculate(bool populationIndex) override
+  void calculate(bool populationIndex)
   {
    // POPULATION &currentPopulations = populations[populationIndex];
     //POPULATION &resultPopulations = populations[!populationIndex];
     // Go through neighbours and fill resultPopulations;
 
   //  currentPopulations.getSpeciesHeaddingWest();
+
+	//  species[0].getPopulations();
+
+
+
   }
 
 #if 0

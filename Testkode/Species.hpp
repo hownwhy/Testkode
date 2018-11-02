@@ -5,12 +5,13 @@
 #include "Population.hpp"
 //#include <vector>
 #include <array>
-#include "CellInterface.hpp"
-#include "DynamicsInterface.hpp"
+#include "Cell.hpp"
+#include "Dynamics.hpp"
+#include "Boundary.hpp"
 //#include <memory>
 
-template <class DYNAMICS>
-class SpeciesInterface
+template <class DYNAMICS, class BOUNDARY>
+class Species
 {
 private:
 
@@ -21,15 +22,20 @@ private:
 
 public:
 	
-	//virtual ~SpeciesInterface() = default;
+	//virtual ~Species() = default;
 
 	
 	
-	void StreamAndCollide(CellInterface& cell) {
-		DYNAMICS::streamAndCollide(CellInterface& cell);
+	void StreamAndCollide(Cell& cell) {
+		DYNAMICS::streamAndCollide(cell);
+	}
+
+	Population getPopulations() {
+		return populations;
 	}
 
 
+#if 0
 	//***********************************************************************************************
 	//Set functions
 	void setRest(bool populationRow, field_t rest_) {
@@ -106,6 +112,8 @@ public:
 	field_t getSouthEast(bool populationRow) {
 		return populations[populationRow].getSouthEast;
 	}
+#endif
+
 };
 
 //#endif

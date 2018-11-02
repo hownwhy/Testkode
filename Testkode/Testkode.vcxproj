@@ -115,16 +115,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Boundary.hpp" />
     <ClInclude Include="Cell.hpp" />
-    <ClInclude Include="CellInterface.hpp" />
+    <ClInclude Include="CellInterface.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="Coordinate.hpp" />
-    <ClInclude Include="DynamicsInterface.hpp" />
+    <ClInclude Include="Dynamics.hpp" />
     <ClInclude Include="Globals.hpp" />
     <ClInclude Include="Neighbours.hpp" />
-    <ClInclude Include="PopulationBack.hpp" />
-    <ClInclude Include="PopulationInterface.hpp" />
-    <ClInclude Include="SpeciesInterface.hpp" />
-    <ClInclude Include="Main.hpp" />
+    <ClInclude Include="PopulationBack.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="PopulationInterface.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Species.hpp" />
+    <ClInclude Include="Main.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Population.hpp" />

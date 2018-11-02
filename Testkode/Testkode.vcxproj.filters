@@ -5,6 +5,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Not In Use">
+      <UniqueIdentifier>{99cdf209-d701-4240-9c38-a5f0b2e7baf5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Neighbours.hpp">
@@ -16,26 +19,29 @@
     <ClInclude Include="Coordinate.hpp">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="CellInterface.hpp">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PopulationInterface.hpp">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="Globals.hpp">
       <Filter>Resource Files</Filter>
     </ClInclude>
+    <ClInclude Include="Boundary.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CellInterface.hpp">
+      <Filter>Not In Use</Filter>
+    </ClInclude>
     <ClInclude Include="PopulationBack.hpp">
+      <Filter>Not In Use</Filter>
+    </ClInclude>
+    <ClInclude Include="PopulationInterface.hpp">
+      <Filter>Not In Use</Filter>
+    </ClInclude>
+    <ClInclude Include="Dynamics.hpp">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Species.hpp">
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="Main.hpp">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DynamicsInterface.hpp">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SpeciesInterface.hpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Not In Use</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

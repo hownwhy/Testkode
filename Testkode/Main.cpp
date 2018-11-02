@@ -1,10 +1,10 @@
-#include "Main.hpp"
+//#include "Main.hpp"
 #include "Coordinate.hpp"
 #include "Cell.hpp"
 #include <iostream>
 
-#if 0
-void initializeNeighbours(std::array<std::array<std::pair<Coordinate, std::shared_ptr<CellInterface>>, 10>, 10> &grid)
+#if 1
+void initializeNeighbours(std::array<std::array<std::pair<Coordinate, std::shared_ptr<Cell>>, 10>, 10> &grid)
 {
   for (int i = 0; i < 10; i++)
   {
@@ -67,8 +67,8 @@ public:
 
 int main()
 {
-#if 0
-	std::array<std::array<std::pair<Coordinate, std::shared_ptr<CellInterface>>, 10>, 10> grid;
+#if 1
+	std::array<std::array<std::pair<Coordinate, std::shared_ptr<Cell>>, 10>, 10> grid;
 
 
   for (int i = 0; i < 10; i++)
@@ -76,7 +76,7 @@ int main()
     for (int j = 0; j < 10; j++)
     {
       grid[i][j].first.set(i, j);
-     // grid[i][j].second = std::make_shared<Cell<Population>>();
+      grid[i][j].second = std::make_shared<Cell>();
 //       grid[i][j].second = std::make_shared<Cell<OilPopulation>>();
 //       grid[i][j].second = std::make_shared<Cell<WaterPopulation>>();
     }

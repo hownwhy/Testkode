@@ -2,18 +2,18 @@
 #include <vector>
 #include <memory>
 
-class CellInterface;
+class Cell;
 
 class Neighbours
 {
-  std::shared_ptr<CellInterface> northWest;
-  std::shared_ptr<CellInterface> north;
-  std::shared_ptr<CellInterface> northEast;
-  std::shared_ptr<CellInterface> east;
-  std::shared_ptr<CellInterface> west;
-  std::shared_ptr<CellInterface> southWest;
-  std::shared_ptr<CellInterface> south;
-  std::shared_ptr<CellInterface> southEast;
+  std::shared_ptr<Cell> northWest;
+  std::shared_ptr<Cell> north;
+  std::shared_ptr<Cell> northEast;
+  std::shared_ptr<Cell> east;
+  std::shared_ptr<Cell> west;
+  std::shared_ptr<Cell> southWest;
+  std::shared_ptr<Cell> south;
+  std::shared_ptr<Cell> southEast;
 
 public:
 
@@ -24,42 +24,42 @@ public:
            west != nullptr && northWest != nullptr;
   }
 
-  void setNorthWest(std::shared_ptr<CellInterface> northWest_)
+  void setNorthWest(std::shared_ptr<Cell> northWest_)
   {
     northWest = northWest_;
   }
 
-  void setNorth(std::shared_ptr<CellInterface> north_)
+  void setNorth(std::shared_ptr<Cell> north_)
   {
     north = north_;
   }
 
-  void setNorthEast(std::shared_ptr<CellInterface> northEast_)
+  void setNorthEast(std::shared_ptr<Cell> northEast_)
   {
     northEast = northEast_;
   }
-  void setWest(std::shared_ptr<CellInterface> west_)
+  void setWest(std::shared_ptr<Cell> west_)
   {
     west = west_;
   }
-  void setEast(std::shared_ptr<CellInterface> east_)
+  void setEast(std::shared_ptr<Cell> east_)
   {
     east = east_;
   }
-  void setSouthWest(std::shared_ptr<CellInterface> southWest_)
+  void setSouthWest(std::shared_ptr<Cell> southWest_)
   {
     southWest = southWest_;
   }
-  void setSouth(std::shared_ptr<CellInterface> south_)
+  void setSouth(std::shared_ptr<Cell> south_)
   {
     south = south_;
   }
-  void setSouthEast(std::shared_ptr<CellInterface> southEast_)
+  void setSouthEast(std::shared_ptr<Cell> southEast_)
   {
     southEast = southEast_;
   }
 
-  std::shared_ptr<CellInterface> getNorth()
+  std::shared_ptr<Cell> getNorth()
   {
     return north;
   }
