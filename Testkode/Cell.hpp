@@ -1,50 +1,146 @@
 #pragma once
-#include "Cell.hpp"
 #include "Neighbours.hpp"
-#include <memory>
-#include <assert.h>
 #include "Species.hpp"
 #include "Dynamics.hpp"
 #include "Boundary.hpp"
+//#include <memory>
+//#include <vector>
+#include <assert.h>
+#define SPECIES_COUNT 2
 
 
-//template <class POPULATION>
 class Cell
 {
 private:
-  Neighbours neigbours;
-  std::array<Species<Dynamics, Boundary>, 2> species; //Specify a Dynamics class for each species
-  //  FluidProperties;
+	
+	
+  Neighbours neighbours;
+  std::array<Species<Dynamics, Boundary>, SPECIES_COUNT> species; //Specify a Dynamics class and Boundary class for each species
+
+  //Species<Dynamics, Boundary> species; //Specify a Dynamics class and Boundary class for species
 
 public:    // Functions
 
   Cell()
   {
-#if 0
-    WaterPopulation* waterPopulation{ dynamic_cast<WaterPopulation*>(populationResult.get()) };
-    if (waterPopulation != nullptr)
-    {
 
-    }
-
-    OilPopulation* oilPopulation{ dynamic_cast<OilPopulation*>(populationResult.get()) };
-    if (oilPopulation != nullptr)
-    {
-
-    }
-#endif
   }
 
-  Neighbours &getNeighbours()
-  {
-    return neigbours;
+  //********************************************************************************************
+ // Set functions
+
+
+   //********************************************************************************************
+  // Get functions
+
+  Neighbours& getNeighbours()  {
+    return neighbours;
+  }
+  
+  Species<Dynamics, Boundary>& getSpecies(bool runIndex) {
+	  return species[runIndex];
   }
 
   //----------------------------------------------------------------------------
 
-  void calculate(bool populationIndex)
-  {
-   // POPULATION &currentPopulations = populations[populationIndex];
+  
+  void streamFromNeighbours(bool runIndex) {
+	  Population toPopulation = species[runIndex].getPopulation();
+	  Population fromPopulation;
+	  
+	  if (neighbours.getEast()->isBoundaryEast() != true) {
+		  fromPopulation = neighbours.getEast()->getSpecies(!runIndex).getPopulation();
+		  toPopulation.setEast(fromPopulation.getEast());
+	  }
+	  else
+
+	  fromPopulation = neighbours.getNorthEast()->getSpecies(!runIndex).getPopulation();
+	  toPopulation.setNorthEast(fromPopulation.getNorthEast());
+	  
+	  fromPopulation = neighbours.getNorth()->getSpecies(!runIndex).getPopulation();
+	  toPopulation.setNorth(fromPopulation.getNorth());
+
+	  fromPopulation = neighbours.getNorthWest()->getSpecies(!runIndex).getPopulation();
+	  toPopulation.setNorthWest(fromPopulation.getNorthWest());
+
+	  fromPopulation = neighbours.getWest()->getSpecies(!runIndex).getPopulation();
+	  toPopulation.setWest(fromPopulation.getWest());
+
+	  fromPopulation = neighbours.getSouthWest()->getSpecies(!runIndex).getPopulation();
+	  toPopulation.setSouthWest(fromPopulation.getSouthWest());
+
+	  fromPopulation = neighbours.getSouth()->getSpecies(!runIndex).getPopulation();
+	  toPopulation.setSouth(fromPopulation.getSouth());
+
+	  fromPopulation = neighbours.getSouthEast()->getSpecies(!runIndex).getPopulation();
+	  toPopulation.setSouthEast(fromPopulation.getSouthEast());
+	
+  }
+  
+  bool isBoundaryEast() const {
+	  return neighbours.getEast() != nullptr;
+  }
+  bool isBoundaryNorthEast() const {
+	  return neighbours.getNorthEast() != nullptr;
+  }
+  bool isBoundaryNorth() const {
+	  return neighbours.getNorth != nullptr;
+  }
+  bool isBoundaryNorthWest() const {
+	  return neighbours.getNorthWest != nullptr;
+  }
+  bool isBoundaryWest() const {
+	  return neighbours.getWest != nullptr;
+  }
+  bool isBoundarySouthWest() const {
+	  return neighbours.getSouthWest != nullptr;
+  }
+  bool isBoundarySouth() const {
+	  return neighbours.getSouth != nullptr;
+  }
+  bool isBoundarySouthEast() const {
+	  return neighbours.getSouthEast != nullptr;
+  }
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  // POPULATION &currentPopulations = populations[populationIndex];
     //POPULATION &resultPopulations = populations[!populationIndex];
     // Go through neighbours and fill resultPopulations;
 
@@ -54,7 +150,7 @@ public:    // Functions
 
 
 
-  }
+  
 
 #if 0
   // Returns pointer that can't be nullptr 
@@ -76,4 +172,25 @@ public:    // Functions
     population->density = density;
   }
 #endif
+
+//// An early experiment constructor for class Cell
+//// Kept here in case needed somewhere
+//public:    // Functions
+//
+//	Cell()
+//	{
+//#if 0
+//		WaterPopulation* waterPopulation{ dynamic_cast<WaterPopulation*>(populationResult.get()) };
+//		if (waterPopulation != nullptr)
+//		{
+//
+//		}
+//
+//		OilPopulation* oilPopulation{ dynamic_cast<OilPopulation*>(populationResult.get()) };
+//		if (oilPopulation != nullptr)
+//		{
+//
+//		}
+//#endif
+//	}
 };

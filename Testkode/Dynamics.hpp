@@ -9,10 +9,15 @@ public:
 	virtual ~Dynamics() = default;
 
 	static void streamAndCollide(Cell& cell){}
+
+	
+
 };
 
-class DynamicsImplementation : Dynamics
-{
-public:
-	static void streamAndCollide(Cell& cell) {}
-};
+//class DynamicsImp : Dynamics
+//{
+//public:
+//	static void streamAndCollide(Cell& cell) {}
+//
+//
+//};

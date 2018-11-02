@@ -1,21 +1,18 @@
 #pragma once
-//#ifndef SPECIES_HPP
-//#define SPECIES_HPP
-
-#include "Population.hpp"
-//#include <vector>
-#include <array>
 #include "Cell.hpp"
 #include "Dynamics.hpp"
 #include "Boundary.hpp"
-//#include <memory>
+#include "Population.hpp"
+#include <array>
+
 
 template <class DYNAMICS, class BOUNDARY>
 class Species
 {
 private:
 
-	std::array<Population, 2> populations;
+//	std::array<Population, 2> populations;
+	Population population;
 	field_t rho;
 	field_t velocity;
 
@@ -24,15 +21,49 @@ public:
 	
 	//virtual ~Species() = default;
 
+	//Propagate from neighbours results from last time step
+	void propagate(bool populationsRow, Neighbours neighbours) {
+//		populations[populationsRow].setEast(neighbours.getEast().   populations[populationsRow].getEast
+	}
 	
-	
-	void StreamAndCollide(Cell& cell) {
+	void streamAndCollide(Cell& cell) {
 		DYNAMICS::streamAndCollide(cell);
 	}
 
-	Population getPopulations() {
-		return populations;
+	
+
+	Population getPopulation() {
+		return population;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #if 0

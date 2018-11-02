@@ -1,92 +1,83 @@
-//#include "Main.hpp"
 #include "Coordinate.hpp"
 #include "Cell.hpp"
 #include <iostream>
 
+const int xDim = 5;
+const int yDim = 5;
+
 #if 1
-void initializeNeighbours(std::array<std::array<std::pair<Coordinate, std::shared_ptr<Cell>>, 10>, 10> &grid)
+template <int X_DIM, int Y_DIM>
+void initializeNeighbours(std::array<std::array<std::pair<Coordinate, std::shared_ptr<Cell>>, Y_DIM>, X_DIM> &grid)
 {
-  for (int i = 0; i < 10; i++)
+  for (int y = 0; y < Y_DIM; y++)
   {
-    for (int j = 0; j < 10; j++)
+    for (int x = 0; x < X_DIM; x++)
     {
-      if (i > 0)
+      if (y > 0)
       {
-        if (j > 0)
-          grid[i][j].second->getNeighbours().setNorthWest(grid[i - 1][j - 1].second);
-        grid[i][j].second->getNeighbours().setNorth(grid[i - 1][j].second);
-        if (j < 9)
-          grid[i][j].second->getNeighbours().setNorthEast(grid[i - 1][j + 1].second);
+        if (x > 0)
+          grid[y][x].second->getNeighbours().setNorthWest(grid[y - 1][x - 1].second);
+        grid[y][x].second->getNeighbours().setNorth(grid[y - 1][x].second);
+        if (x < X_DIM - 1)
+          grid[y][x].second->getNeighbours().setNorthEast(grid[y - 1][x + 1].second);
       }
 
-      if (j > 0)
-        grid[i][j].second->getNeighbours().setWest(grid[i][j - 1].second);
-      if (j < 9)
-        grid[i][j].second->getNeighbours().setEast(grid[i][j + 1].second);
+      if (x > 0)
+        grid[y][x].second->getNeighbours().setWest(grid[y][x - 1].second);
+      if (x < X_DIM - 1)
+        grid[y][x].second->getNeighbours().setEast(grid[y][x + 1].second);
 
-      if (i < 9)
+      if (y < Y_DIM - 1)
       {
-        if (j > 0)
-          grid[i][j].second->getNeighbours().setSouthWest(grid[i + 1][j - 1].second);
-        grid[i][j].second->getNeighbours().setSouth(grid[i + 1][j].second);
-        if (j < 9)
-          grid[i][j].second->getNeighbours().setSouthEast(grid[i + 1][j + 1].second);
+        if (x > 0)
+          grid[y][x].second->getNeighbours().setSouthWest(grid[y + 1][x - 1].second);
+        grid[y][x].second->getNeighbours().setSouth(grid[y + 1][x].second);
+        if (x < X_DIM - 1)
+          grid[y][x].second->getNeighbours().setSouthEast(grid[y + 1][x + 1].second);
       }
     }
   }
 }
 #endif
 
-//class TestClassInterface
-//{
-//public:
-//	virtual void doStuff();
-//};
 
-class TestClass
-{
-public:
-	//TestClass();
-	static void doStuff() {
-		std::cout << "doStuff" << std::endl;
-	}
-};
-
-
-
-template <class TESTCLASS>
-class TestTemplate
-{
-public:
-	void doStuffTemplate() {
-		TESTCLASS::doStuff();
-
-	}
-};
 
 
 int main()
 {
 #if 1
-	std::array<std::array<std::pair<Coordinate, std::shared_ptr<Cell>>, 10>, 10> grid;
+	std::array<std::array<std::pair<Coordinate, std::shared_ptr<Cell>>, yDim>, xDim> grid;
 
 
-  for (int i = 0; i < 10; i++)
+  for (int y = 0; y < yDim; y++)
   {
-    for (int j = 0; j < 10; j++)
+    for (int x = 0; x < xDim; x++)
     {
-      grid[i][j].first.set(i, j);
-      grid[i][j].second = std::make_shared<Cell>();
-//       grid[i][j].second = std::make_shared<Cell<OilPopulation>>();
-//       grid[i][j].second = std::make_shared<Cell<WaterPopulation>>();
+      grid[y][x].first.set(y, x);
+      grid[y][x].second = std::make_shared<Cell>();
+//       grid[y][x].second = std::make_shared<Cell<OilPopulation>>();
+//       grid[y][x].second = std::make_shared<Cell<WaterPopulation>>();
     }
   }
 
   initializeNeighbours(grid);
 
+  for (int y = 0; y < yDim; y++)
+  {
+	  for (int x = 0; x < xDim; x++)
+	  {
+		  std::cout << "(" << grid[y][x].first.getX() << "," << grid[y][x].first.getX() << ")";
+	  }
+	  std::cout << "/n";
+  }
+
+
+
+
+
 //  initializePopulations();
 
-  for (int i = 0; i < 10; i++)
+  /*for (int i = 0; i < 10; i++)
   {
     for (int j = 0; j < 10; j++)
     {
@@ -100,21 +91,49 @@ int main()
     {
       grid[i][j].second->calculate(1);
     }
-  }
+  }*/
 
 #endif
 
-  TestTemplate<TestClass> test;
-  test.doStuffTemplate();
 
-  //TestClass::doStuff();
-  //TestClass testclass;
-
- // testclass.doStuff();
 
   std::cin.get();
 
   int k = 5;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #if 0

@@ -17,4 +17,12 @@ public:
     x = x_;
     y = y_;
   }
+
+  int getX() const{
+	  return x;
+  }
+
+  int getY() const{
+	  return y;
+  }
 };
